@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import com.willy.example.customcar.BR;
 import com.willy.example.customcar.R;
 import com.willy.example.customcar.classes.AutoPart;
+import com.willy.example.customcar.classes.AutoPartFactory;
 import com.willy.example.customcar.database.CustomCarDatabase;
 import com.willy.example.customcar.enums.AutoPartType;
 import com.willy.example.customcar.screens.result.ResultActivity;
@@ -67,7 +68,11 @@ public class CustomizeViewModel extends BaseObservable {
     // endregion
 
     public void getAutoParts() {
-        parts.addAll(CustomCarDatabase.getInstance(activity).dataDao().getPartsOfType(type.getCode()));
+        AutoPartFactory factory = new AutoPartFactory();
+        List<AutoPart> dbParts = CustomCarDatabase.getInstance(activity).dataDao().getPartsOfType(type.getCode());
+        for (AutoPart part : dbParts) {
+            parts.add(factory.getAutoPart(part.getType(), part.getName(), part.getDescription(), part.getPrice()));
+        }
         if (parts.size() > 0) {
             selectedPart = parts.get(0);
             isLoading.set(false);
