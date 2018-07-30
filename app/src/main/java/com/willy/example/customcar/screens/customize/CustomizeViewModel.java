@@ -14,6 +14,7 @@ import com.willy.example.customcar.BR;
 import com.willy.example.customcar.R;
 import com.willy.example.customcar.classes.AutoPart;
 import com.willy.example.customcar.classes.AutoPartFactory;
+import com.willy.example.customcar.classes.CustomizationSession;
 import com.willy.example.customcar.database.CustomCarDatabase;
 import com.willy.example.customcar.enums.AutoPartType;
 import com.willy.example.customcar.screens.result.ResultActivity;
@@ -85,6 +86,8 @@ public class CustomizeViewModel extends BaseObservable {
     }
 
     public void next(View v) {
+        CustomizationSession.getInstance().stackPart(selectedPart);
+
         Intent intent;
         if (type == AutoPartType.PAINT) {
             intent = new Intent(activity, ResultActivity.class);
