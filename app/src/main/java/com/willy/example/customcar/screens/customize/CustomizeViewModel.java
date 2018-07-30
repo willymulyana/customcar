@@ -76,8 +76,8 @@ public class CustomizeViewModel extends BaseObservable {
         }
         if (parts.size() > 0) {
             selectedPart = parts.get(0);
-            isLoading.set(false);
         }
+        isLoading.set(false);
     }
 
     @BindingAdapter("setPartChangeListener")

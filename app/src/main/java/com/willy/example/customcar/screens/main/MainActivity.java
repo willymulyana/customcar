@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.willy.example.customcar.R;
 import com.willy.example.customcar.database.CustomCarDatabase;
 import com.willy.example.customcar.databinding.ActivityMainBinding;
+import com.willy.example.customcar.enums.AutoPartType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //initialize database
-        CustomCarDatabase.getInstance(this.getApplicationContext());
+        CustomCarDatabase.getInstance(this.getApplicationContext())
+                .dataDao().getPartsOfType(AutoPartType.TRANSMISSION.getCode());
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(new MainViewModel(this));
