@@ -16,7 +16,10 @@ public class ResultActivity extends AppCompatActivity {
 
         ActivityResultBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_result);
         binding.setViewModel(new ResultViewModel(this));
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        return;
     }
 }

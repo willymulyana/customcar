@@ -21,7 +21,10 @@ public class CustomizeActivity extends AppCompatActivity {
 
         ActivityCustomizeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_customize);
         binding.setViewModel(new CustomizeViewModel(this, type));
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        return;
     }
 }
