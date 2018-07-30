@@ -28,6 +28,7 @@ public abstract class CustomCarDatabase extends RoomDatabase {
 
     private static CustomCarDatabase buildDatabase(final Context context) {
         return Room.databaseBuilder(context, CustomCarDatabase.class, "customcar")
+                .allowMainThreadQueries()
                 .addCallback(new Callback() {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
