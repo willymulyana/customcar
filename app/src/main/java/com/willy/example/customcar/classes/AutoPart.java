@@ -50,7 +50,7 @@ public class AutoPart implements IAutoPart {
     public static AutoPart[] populateData() {
         return new AutoPart[]{
                 new AutoPart(AutoPartType.TRANSMISSION, "Auto", "Automatic Transmission", 1000),
-                new AutoPart(AutoPartType.TRANSMISSION, "Manual", "Automatic Transmission", 500),
+                new AutoPart(AutoPartType.TRANSMISSION, "Manual", "Manual Transmission", 500),
 
                 new AutoPart(AutoPartType.FUEL_TYPE, "Gas", "Gasoline Fuel", 750),
                 new AutoPart(AutoPartType.FUEL_TYPE, "Diesel", "Diesel Fuel", 500),
