@@ -43,6 +43,8 @@ public class ResultViewModel {
     }
 
     public void startOver(View v) {
+        CustomizationSession.getInstance().reset();
+
         Intent intent = new Intent(activity, MainActivity.class);
         activity.startActivity(intent);
     }
